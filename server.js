@@ -8,7 +8,7 @@ mongoose.connection.on('error', (err) => {
 });
 
 mongoose.connection.once('open', () => {
-   console.log('MongoDB Connected!')
+   console.log('MongoDB Connected!');
 });
 
 // Importing Models
@@ -19,5 +19,5 @@ require('./models/Message');
 const app = require('./app');
 
 app.listen(5000, () =>{
-   console.log("Server listenig on port 5000")
+   console.log("Server listenig on port 5000");
 });

@@ -1,25 +1,25 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-   nome: {
+   name: {
       type: String,
-      required: 'Nome é um campo obrigatório'
+      required: 'Nome é requerido'
    },
-   sobrenome: {
+   lastName: {
       type: String,
-      required: 'Nome é um campo obrigatório'
+      required: 'Sobrenome é requerido'
    },
-   telefone: {
+   phone: {
       type: Number,
-      required: 'Telefone é um campo obrigatório'
+      required: 'Telefone é requerido'
    },
    cpf: {
       type: Number,
-      required: 'Cpf é um campo obrigatório'
+      required: 'Cpf é requerido'
    },
-   senha: {
+   password: {
       type: String,
-      required: 'Senha é um campo obrigatório'
+      required: 'Senha é requerida'
    }
     
 }, {

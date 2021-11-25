@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 const chatroomSchema = new mongoose.Schema({
-   nome: {
+   name: {
       type: String,
-      required: 'Nome é um campo obrigatório'
+      required: 'Nome é requerido'
    },
-   sobrenome: {
+   lastName: {
       type: String,
-      required: 'Nome é um campo obrigatório'
+      required: 'Sobrenome é requerido'
    }
     
 });
