@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
    },
    sobrenome: {
       type: String,
+      required: 'Nome é um campo obrigatório'
    },
    telefone: {
       type: Number,
