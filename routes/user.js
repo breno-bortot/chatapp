@@ -11,6 +11,10 @@ router.put('/:id', auth, catchErrors(userController.edit));
 
 router.delete('/:id', auth, catchErrors(userController.delete));
 
+router.get('/listAll', auth, catchErrors(userController.listAll));
+
+
+
 
 
 
