@@ -8,6 +8,7 @@ exports.catchErrors = (fn) => {
        //Validation Errors
        if (typeof err === "string") {
          res.status(400).json({
+           succes: false,
            message: err,
          });
        } else {

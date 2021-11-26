@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
       required: 'Sobrenome é requerido'
    },
    phone: {
-      type: Number,
+      type: String,
       required: 'Telefone é requerido'
    },
    cpf: {

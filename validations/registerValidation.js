@@ -1,6 +1,6 @@
-exports.cpfValidation = (cpf) => {
+exports.cpfValidation = ($cpf) => {
    // validação de CPF
-
+let cpf = $cpf.toString();
 cpf = [...cpf]
 const aDigitoBefore = cpf[9]
 const bDigitoBefore = cpf[10]
@@ -32,14 +32,20 @@ let bDigito = n[10]
 
 //// Validação
 
-if(aDigitoBefore == aDigito && bDigitoBefore == bDigito){
-   return true;
+if(aDigitoBefore != aDigito && bDigitoBefore != bDigito){
+   return false;
    } else {
-      return false;
+      return true;
    }
    
 }
 
 exports.phoneValidation = (phone) => {
-   
+   const phoneRegex = /^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)(?:((?:9\d|[2-9])\d{3})\-?(\d{4}))$/;
+
+   if(!phoneRegex.test(phone)) {
+      return false;
+   } else {
+      return true;
+   }
 }
