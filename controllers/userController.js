@@ -63,3 +63,17 @@ exports.edit = async (request, response) => {
       userEdited
    });
 };
+
+exports.delete = async (request, response) => {
+   
+   
+   const userId = request.params.id;
+   const userDeleted = await User.findByIdAndDelete(userId);
+   if(!userDeleted) throw `Usuário id: ${userId} não existe mais`;
+   
+   response.json({
+      "success": true,
+      "message": `Usuário com id:${userDeleted.name} deletado!!`,
+   });
+};
+
