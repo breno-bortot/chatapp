@@ -37,6 +37,29 @@ exports.login = async (request, response) => {
    response.json({
       success: true,
       message: "Usuário logado com sucesso!",
+      userId: user._id,
       token,
-   })
-}
+   });
+};
+
+// User is not allowed to change inital CPF
+exports.edit = async (request, response) => {
+   const { name, lastName, phone, password, passwordCheck } = request.body;
+
+   if(!phoneValidation(phone)) throw "Formato de número de telefone inválido.";
+   if(password !== passwordCheck) throw "As senhas informadas não conferem";
+   
+   const hashedPasswrod = await bcrypt.hash(password, 10);
+   
+   const userId = request.params.id;
+   const updates =  { name, lastName, phone, password: hashedPasswrod }
+   const options = { new: true }
+
+   const userEdited = await User.findByIdAndUpdate(userId, updates, options);
+
+   response.json({
+      "success": true,
+      "message": `Usuário editado com sucesso!`,
+      userEdited
+   });
+};
