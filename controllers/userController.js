@@ -37,6 +37,7 @@ exports.login = async (request, response) => {
    response.json({
       success: true,
       message: "Usuário logado com sucesso!",
+      userId: user._id,
       token,
    });
 };
@@ -53,7 +54,7 @@ exports.edit = async (request, response) => {
    
    const userId = request.params.id;
    const updates =  { name, lastName, phone, password: hashedPasswrod }
-   const options = { new: true }
+   const options = { new: true, select: { password: 0} }
 
    const userEdited = await User.findByIdAndUpdate(userId, updates, options);
    if(!userEdited) throw `Usuário id: ${userId} não existe mais`;
