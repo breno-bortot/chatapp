@@ -56,6 +56,7 @@ exports.edit = async (request, response) => {
    const options = { new: true }
 
    const userEdited = await User.findByIdAndUpdate(userId, updates, options);
+   if(!userEdited) throw `Usuário id: ${userId} não existe mais`;
 
    response.json({
       "success": true,
