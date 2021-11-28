@@ -79,7 +79,7 @@ exports.delete = async (request, response) => {
 
 exports.listAll = async (request, response) => {
    
-   const userList = await User.find({}, { phone: 0, cpf: 0, password: 0 });
+   const userList = await User.find({}, { _id: 0, phone: 0, cpf: 0, password: 0 });
    if(userList == []) throw 'Nenhum usuário cadastrado';
   
    response.json({
