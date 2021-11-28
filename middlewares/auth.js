@@ -5,8 +5,9 @@ module.exports = async (request, response, next) => {
         if(!request.headers.authorization) throw "Acesso negado!";
 
         const token = request.headers.authorization.split(" ")[1];
-        const payload = await jwt.verify(token, process.env.SECRET);
-
+        console.log()
+        const payload = await jwt.verify(token, process.env.SECRET); 
+        
         request.payload = payload;
        
         next();

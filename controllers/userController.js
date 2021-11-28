@@ -37,7 +37,6 @@ exports.login = async (request, response) => {
    response.json({
       success: true,
       message: "Usuário logado com sucesso!",
-      userId: user._id,
       token,
    });
 };
@@ -46,6 +45,7 @@ exports.login = async (request, response) => {
 exports.edit = async (request, response) => {
    const { name, lastName, phone, password, passwordCheck } = request.body;
 
+   if(request.params.id !== request.payload.id) throw "Acesso negado! Id fornecido para Operação difere do id de usuário logado";
    if(!phoneValidation(phone)) throw "Formato de número de telefone inválido.";
    if(password !== passwordCheck) throw "As senhas informadas não conferem";
    
@@ -65,7 +65,7 @@ exports.edit = async (request, response) => {
 };
 
 exports.delete = async (request, response) => {
-   
+   if(request.params.id !== request.payload.id) throw "Acesso negado! Id fornecido para Operação difere do id de usuário logado";
    
    const userId = request.params.id;
    const userDeleted = await User.findByIdAndDelete(userId);
