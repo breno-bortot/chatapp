@@ -75,7 +75,7 @@ exports.delete = async (request, response) => {
    
    response.json({
       "success": true,
-      "message": `Usuário com id:${userDeleted.name} deletado!!`,
+      "message": `Usuário ${userDeleted.name} com id:${userDeleted._id} deletado!!`,
    });
 };
 
