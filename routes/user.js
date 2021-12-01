@@ -7,9 +7,9 @@ router.post('/register', catchErrors(userController.register));
 
 router.post('/login', catchErrors(userController.login));
 
-router.put('/:id', auth, catchErrors(userController.edit));
+router.put('/edit/:id', auth, catchErrors(userController.edit));
 
-router.delete('/:id', auth, catchErrors(userController.delete));
+router.delete('/delete/:id', auth, catchErrors(userController.delete));
 
 router.get('/listAll', auth, catchErrors(userController.listAll));
 
